@@ -22,7 +22,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders=Order::orderBy('id','DESC')->paginate(10);
+        $orders=Order::orderBy('id','ASC')->paginate(10);
         return view('backend.order.index')->with('orders',$orders);
     }
 
@@ -92,8 +92,9 @@ class OrderController extends Controller
         $order_data=$request->all();
         $order_data['order_number']='ORD-'.strtoupper(Str::random(10));
         $order_data['user_id']=$request->user()->id;
-        $order_data['shipping_id']=$request->shipping;
+        $order_data['shipping_id']=6;
         $shipping=Shipping::where('id',$order_data['shipping_id'])->pluck('price');
+        // hassan change free shipping (this is payed shipping) >>> $shipping=Shipping::where('id',$order_data['shipping_id'])->pluck('price');
         // return session('coupon')['value'];
         $order_data['sub_total']=Helper::totalCartPrice();
         $order_data['quantity']=Helper::cartCount();
@@ -161,6 +162,7 @@ class OrderController extends Controller
     {
         $order=Order::find($id);
         // return $order;
+        $product_id=Cart::where('order_id',$id);
         return view('backend.order.show')->with('order',$order);
     }
 
