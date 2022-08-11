@@ -529,7 +529,8 @@
         }
 
         #Gslider .carousel-inner{
-        height: 550px;
+        /* height: 550px; */
+        height: auto;
         }
         #Gslider .carousel-inner img{
             width: 100% !important;
