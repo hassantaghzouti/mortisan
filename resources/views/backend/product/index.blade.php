@@ -21,12 +21,12 @@
               <th>S.N.</th>
               <th>Title</th>
               <th>Category</th>
-              <th>Is Featured</th>
-              <th>Price</th>
+              <th>Featured</th>
+              <th style="width: 6%">Price</th>
               <th>Discount</th>
               <th>Size</th>
               <th>Condition</th>
-              <th>Brand</th>
+              {{-- <th>Brand</th> --}}
               <th>Stock</th>
               <th>Photo</th>
               <th>Status</th>
@@ -38,12 +38,12 @@
               <th>S.N.</th>
               <th>Title</th>
               <th>Category</th>
-              <th>Is Featured</th>
+              <th>Featured</th>
               <th>Price</th>
               <th>Discount</th>
               <th>Size</th>
               <th>Condition</th>
-              <th>Brand</th>
+              {{-- <th>Brand</th> --}}
               <th>Stock</th>
               <th>Photo</th>
               <th>Status</th>
@@ -67,8 +67,8 @@
                       </sub>
                     </td>
                     <td>{{(($product->is_featured==1)? 'Yes': 'No')}}</td>
-                    <td>Rs. {{$product->price}} /-</td>
-                    <td>  {{$product->discount}}% OFF</td>
+                    <td>{{$product->price}} $</td>
+                    <td>{{$product->discount}}% OFF</td>
                     <td>{{$product->size}}</td>
                     <td>{{$product->condition}}</td>
                     {{-- <td> {{ucfirst($product->brand->title)}}</td> --}}

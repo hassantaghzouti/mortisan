@@ -4910,3 +4910,15 @@ Version:1.0
 /*=============================
 	End Footer CSS
 ===============================*/
+
+
+/* style nav active */
+
+.nav .btn {
+	background: white !important;
+	color: black !important;
+  }
+  .nav .btn.how-active1{
+	background-color: black !important;
+	color: white !important;
+  }

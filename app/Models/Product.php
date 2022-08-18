@@ -37,6 +37,7 @@ class Product extends Model
     public function carts(){
         return $this->hasMany(Cart::class)->whereNotNull('order_id');
     }
+    
 
     public function wishlists(){
         return $this->hasMany(Wishlist::class)->whereNotNull('cart_id');
@@ -44,6 +45,10 @@ class Product extends Model
 
     public function brand(){
         return $this->hasOne(Brand::class,'id','brand_id');
+    }
+
+    public function medias(){
+        return $this->hasMany(Media::class);
     }
 
 }

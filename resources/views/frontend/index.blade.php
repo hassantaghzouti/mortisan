@@ -89,12 +89,12 @@
                                     // dd($categories);
                                 @endphp
                                 @if($categories)
-                                <button class="btn" style="background:black"data-filter="*">
+                                <button class="btn how-active1"  data-filter="*">
                                     All Products
                                 </button>
                                     @foreach($categories as $key=>$cat)
 
-                                    <button class="btn" style="background:none;color:black;"data-filter=".{{$cat->id}}">
+                                    <button class="btn"  data-filter=".{{$cat->id}}">
                                         {{$cat->title}}
                                     </button>
                                     @endforeach
@@ -634,5 +634,11 @@
             return false
         }
     </script>
+    <script>
+        function navmenubtn(filter){
+            $('.nav .btn.active').removeClass('active');
+            $('.nav .btn[data-filter='+filter+']').addClass('active');
 
+        }
+    </script>
 @endpush

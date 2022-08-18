@@ -1,12 +1,12 @@
 <?php
-
+ 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Brand;
-
+use App\Models\Media;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
@@ -90,6 +90,13 @@ class ProductController extends Controller
 
     }
 
+    public function deletemedia($id)
+    {
+        Media::findOrFail($id)->delete();
+
+        return response()->json(['status'=>true,'msg'=>'Media deleted successfuly']);
+    }
+
     /**
      * Display the specified resource.
      *
@@ -146,6 +153,8 @@ class ProductController extends Controller
             'discount'=>'nullable|numeric'
         ]);
 
+        
+
         $data=$request->all();
         $data['is_featured']=$request->input('is_featured',0);
         $size=$request->input('size');
@@ -157,6 +166,35 @@ class ProductController extends Controller
         }
         // return $data;
         $status=$product->fill($data)->save();
+
+        /* attachemnts */
+        $attachments = [];
+        if ($request->has('attachments')) {
+            foreach ($request->input('attachments') as $index => $attachment) {
+                $newAttachment = Media::findOrNew($attachment['id'] ?? null);
+                $newAttachment->description = $attachment['description'];
+                $newAttachment->order = 'order';
+
+                if (!$newAttachment->id) {
+                    dd($request->file('medias'));
+                    $file = $request->file('medias')[$index]['attachment'];
+                    $mimeType = $file->getMimeType();
+                    $fileExt = $file->getClientOriginalExtension();
+                    $fileNewName = uniqid('media_') . ".$fileExt";
+                    $filePath = "medias/$id/";
+
+                    $newAttachment->attach_type_id = strpos($mimeType, 'image/') !== FALSE ? 2 : 1;
+                    $newAttachment->product_id = $product->id;
+                    $newAttachment->image_link = "$filePath/$fileNewName";
+                    $newAttachment->image_description = $fileNewName;
+
+                    $file->storeAs($filePath, $fileNewName);
+                }
+                $attachments[] = $newAttachment;
+            }
+        }
+        $product->medias()->saveMany($attachments);
+
         if($status){
             request()->session()->flash('success','Product Successfully updated');
         }

@@ -109,9 +109,11 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     Route::get('/profile','AdminController@profile')->name('admin-profile');
     Route::post('/profile/{id}','AdminController@profileUpdate')->name('profile-update');
     // Category
-    Route::resource('/category','CategoryController');
+    Route::resource('/category','CategoryController'); 
     // Product
     Route::resource('/product','ProductController');
+    //delete media for product
+    Route::post('/product/delete','ProductController@deletemedia');
     // Ajax for sub category
     Route::post('/category/{id}/child','CategoryController@getChildByParent');
     // POST category
