@@ -99,6 +99,8 @@
                     </td>
                     <td>
                         <a href="{{route('product.edit',$product->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                        <a href="/admin/medias/{{ $product->id }}" class="btn btn-primary btn-sm" ><i class="fa fa-images"></i></a>
+                        <a href="/admin/medias/show/{{ $product->id }}" class="btn btn-primary btn-sm" ><i class="fa fa-eye"></i></a>
                     <form method="POST" action="{{route('product.destroy',[$product->id])}}">
                       @csrf
                       @method('delete')

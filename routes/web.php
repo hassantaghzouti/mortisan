@@ -143,6 +143,11 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     // Password Change
     Route::get('change-password', 'AdminController@changePassword')->name('change.password.form');
     Route::post('change-password', 'AdminController@changPasswordStore')->name('change.password');
+
+    //media
+    // medias //private routes  for admin to access
+    Route::get('/medias/{id?}', 'MediaController@create');
+    Route::get('/medias/show/{id?}', 'MediaController@show');
 });
 
 
@@ -186,3 +191,6 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
 
+//media
+Route::get('/medias/{id}', [App\Http\Controllers\MediaController::class , 'showmedias']);
+Route::resource('medias', MediaController::class);

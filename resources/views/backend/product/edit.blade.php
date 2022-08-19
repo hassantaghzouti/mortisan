@@ -147,52 +147,8 @@
                 </div>
 
                 {{-- media --}}
-                <div class="form-group good-attachments">
-                    <h3>Attachements</h3>
-                    @foreach ($product->medias as $index => $attachment)
-                        <div class="good-attachment">
-                            <input type="hidden" name="attachments[{{ $index }}][id]"
-                                value={{ $attachment->id }}>
-                            <div class="form-group row">
-                                <div class="col-md-2 d-flex align-items-center">
-                                    <img class="attachment-image"
-                                        src="{{ $attachment->attach_type->code != 'IMG' ? '/media/globals/pdf-landscape.jpg' : route('attachment-file', ['id' => $attachment->id]) }}"
-                                        alt="">
-                                </div>
-                                <div class="col-md-9">
-                                    <textarea class="form-control" name="attachments[{{ $index }}][description]" rows="2">{{ $attachment->description ?? '' }}</textarea>
-                                </div>
-                                <div class="col-md-1 d-flex align-items-center">
-                                    <button class="btn btn-danger btn-xs remove-good-attachment"><i
-                                            class="fa fa-trash"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                    <div class="d-flex align-items-center">
-                        <label for="attachment-files" class="btn btn-primary btn-sm good-attachment-add">
-                            <i class="fa fa-plus"></i> Ajouter un attachement</label>
-                        <input type="file" name="medias" id="attachment-files" class="hidden" style="display: none" multiple>
-                    </div>
-                </div>
 
-                <div class="attachments-prototype hidden" style="display: none">
-                    {{-- ATTACHMENTS PROTOTYPE --}}
-                    <div class="good-attachment">
-                        <div class="form-group row">
-                            <div class="col-md-2 d-flex align-items-center">
-                                <img class="attachment-image" width="150" height="150" src="" alt="">
-                            </div>
-                            <div class="col-md-9">
-                                <textarea class="form-control" name="attachments[__INDEX__][description]" rows="2"></textarea>
-                            </div>
-                            <div class="col-md-1 d-flex align-items-center">
-                                <button class="btn btn-danger btn-xs remove-good-attachment"><i
-                                        class="fa fa-trash"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 {{-- end media --}}
 
                 <div class="form-group">

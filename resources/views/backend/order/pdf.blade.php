@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Order @if($order)- {{$order->order_number}} @endif</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> --}}
 </head>
 <body>
 
@@ -68,10 +68,48 @@
   .table td, .table th {
     padding: .30rem;
   }
+/* bootstrap.min.css classes */
+.float-left {
+    float: left !important
+}
+.float-right {
+    float: right !important
+}
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: ""
+}
+.text-left {
+    text-align: left !important
+}
+.text-right {
+    text-align: right !important
+}
+	
+.pt-3,
+.py-3 {
+    padding-top: 1rem !important
+}
+.table {
+        border-collapse: collapse !important
+}
+.table td,
+.table th {
+    background-color: #fff !important
+}
+.table-bordered td,
+.table-bordered th {
+    border: 1px solid #dee2e6 !important
+}
+	
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, .05)
+}
 </style>
   <div class="invoice-header">
     <div class="float-left site-logo">
-      <img src="{{asset('backend/img/logo.png')}}" alt="">
+      {{-- <img src="{{asset('backend/img/logo.png')}}" alt=""> --}}
     </div>
     <div class="float-right site-address">
       <h4>{{env('APP_NAME')}}</h4>
@@ -109,7 +147,7 @@
     <div class="table-header">
       <h5>Order Details</h5>
     </div>
-    <table class="table table-bordered table-stripe">
+    <table class="table table-bordered table-striped">
       <thead>
         <tr>
           <th scope="col" class="col-6">Product</th>
