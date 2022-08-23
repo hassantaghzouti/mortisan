@@ -45,17 +45,16 @@
 										<div class="product-gallery">
 											<!-- Images slider -->
 											<div class="flexslider-thumbnails">
-												<div  class="slides slider-for" id="aniimated-thumbnials" >
+												<div  class="slides slider-for tz-gallery" id="aniimated-thumbnials" >
 													@php 
 														$photo=explode(',',$product_detail->photo);
 													// dd($photo);
 													@endphp
 													@foreach($photo as $data)
-														{{-- <li data-thumb="{{$data}}" rel="adjustX:10, adjustY:"> --}}
-															<a href="{{$data}}" alt="{{$data}}">
-																<img src="{{$data}}" alt="{{$data}}">
-															</a>
-														{{-- </li> --}}
+														<li  data-thumb="{{$data}}" rel="adjustX:10, adjustY:"> 
+															<a class="lightbox"  href="{{$data}}" alt="{{$data}}">
+																<img src="{{$data}}" alt="{{$data}}"></a>
+														</li> 
 													@endforeach
 												</div>
 											</div>

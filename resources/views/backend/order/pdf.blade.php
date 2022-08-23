@@ -19,12 +19,12 @@
   .invoice-right-top h3 {
     padding-right: 20px;
     margin-top: 20px;
-    color: green;
+    color: darkslategrey;
     font-size: 30px!important;
     font-family: serif;
   }
   .invoice-left-top {
-    border-left: 4px solid green;
+    border-left: 4px solid darkslategrey;
     padding-left: 20px;
     padding-top: 20px;
   }
@@ -34,16 +34,16 @@
     font-size: 16px;
     margin-bottom: 3px;
   }
-  thead {
-    background: green;
+  /* thead {
+    background: darkslategrey;
     color: #FFF;
-  }
+  } */
   .authority h5 {
     margin-top: -10px;
-    color: green;
+    color: darkslategrey;
   }
   .thanks h4 {
-    color: green;
+    color: darkslategrey;
     font-size: 25px;
     font-weight: normal;
     font-family: serif;
@@ -112,16 +112,20 @@
       {{-- <img src="{{asset('backend/img/logo.png')}}" alt=""> --}}
     </div>
     <div class="float-right site-address">
-      <h4>{{env('APP_NAME')}}</h4>
+      {{-- <h4>{{env('APP_NAME')}}</h4>
       <p>{{env('APP_ADDRESS')}}</p>
       <p>Phone: <a href="tel:{{env('APP_PHONE')}}">{{env('APP_PHONE')}}</a></p>
-      <p>Email: <a href="mailto:{{env('APP_EMAIL')}}">{{env('APP_EMAIL')}}</a></p>
+      <p>Email: <a href="mailto:{{env('APP_EMAIL')}}">{{env('APP_EMAIL')}}</a></p> --}}
+      <h4 style="text-decoration: none; color:#000;">Mortisan</h4>
+      <p style="text-decoration: none; color:#000;">NO. 12 - Gueliz, Marrakech Morocco</p>
+      <p>Phone: <a href="tel: +212 772 611 572"  style="text-decoration: none; color:#000;">+212 772 611 572</a></p>
+      <p>Email: <a href="mailto:contact@mortisan.com"  style="text-decoration: none; color:#000;">contact@mortisan.com</a></p>
     </div>
     <div class="clearfix"></div>
   </div>
   <div class="invoice-description">
     <div class="invoice-left-top float-left">
-      <h6>Invoice to</h6>
+      <h4>Invoice to</h4>
        <h3>{{$order->first_name}} {{$order->last_name}}</h3>
        <div class="address">
         <p>
@@ -145,9 +149,9 @@
   </div>
   <section class="order_details pt-3">
     <div class="table-header">
-      <h5>Order Details</h5>
+      <h3>Order Details</h3>
     </div>
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped" style="width: 100%">
       <thead>
         <tr>
           <th scope="col" class="col-6">Product</th>
@@ -166,8 +170,8 @@
                 {{$pro->title}}
               @endforeach
             </span></td>
-          <td>x{{$cart->quantity}}</td>
-          <td><span>${{number_format($cart->price,2)}}</span></td>
+          <td style="text-align: center;">x{{$cart->quantity}}</td>
+          <td class="text-right"><span>${{number_format($cart->price,2)}}</span></td>
         </tr>
       @endforeach
       </tbody>
@@ -175,7 +179,7 @@
         <tr>
           <th scope="col" class="empty"></th>
           <th scope="col" class="text-right">Subtotal:</th>
-          <th scope="col"> <span>${{number_format($order->sub_total,2)}}</span></th>
+          <th scope="col"  class="text-right"> <span>${{number_format($order->sub_total,2)}}</span></th>
         </tr>
       {{-- @if(!empty($order->coupon))
         <tr>
@@ -190,23 +194,21 @@
             $shipping_charge=DB::table('shippings')->where('id',$order->shipping_id)->pluck('price');
           @endphp
           <th scope="col" class="text-right ">Shipping:</th>
-          <th><span>${{number_format($shipping_charge[0],2)}}</span></th>
+          <th class="text-right"><span>${{number_format($shipping_charge[0],2)}}</span></th>
         </tr>
         <tr>
           <th scope="col" class="empty"></th>
           <th scope="col" class="text-right">Total:</th>
-          <th>
-            <span>
-                ${{number_format($order->total_amount,2)}}
-            </span>
+          <th class="text-right">
+            <span>${{number_format($order->total_amount,2)}}</span>
           </th>
         </tr>
       </tfoot>
     </table>
   </section>
-  <div class="thanks mt-3">
+  {{-- <div class="thanks mt-3">
     <h4>Thank you for your business !!</h4>
-  </div>
+  </div> --}}
   <div class="authority float-right mt-5">
     <p>-----------------------------------</p>
     <h5>Authority Signature:</h5>
