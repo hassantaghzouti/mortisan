@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\User;
 use App\Models\Order;
 use App\Models\ProductReview;
 use App\Models\PostComment;
+use App\Models\Product;
 use App\Rules\MatchOldPassword;
 use Hash;
 
@@ -63,15 +65,26 @@ class HomeController extends Controller
         $order=Order::find($id);
         if($order){
            if($order->status=="process" || $order->status=='delivered' || $order->status=='cancel'){
-                return redirect()->back()->with('error','You can not delete this order now');
+                return redirect()->back()->with('error','You can not cancel this order because its in '. $order->status . ' right now');
            }
+        //    else{
+        //         $status=$order->delete();
+        //         if($status){
+        //             request()->session()->flash('success','Order Successfully deleted');
+        //         }
+        //         else{
+        //             request()->session()->flash('error','Order can not deleted');
+        //         }
+        //         return redirect()->route('user.order.index');
+        //    }
            else{
-                $status=$order->delete();
-                if($status){
-                    request()->session()->flash('success','Order Successfully deleted');
+                $status=$order->status='cancel';
+                $order->save();
+                if($status=='cancel'){
+                    request()->session()->flash('success','Order Successfully canceled');
                 }
                 else{
-                    request()->session()->flash('error','Order can not deleted');
+                    request()->session()->flash('error','Order can not be canceled');
                 }
                 return redirect()->route('user.order.index');
            }
@@ -86,7 +99,8 @@ class HomeController extends Controller
     {
         $order=Order::find($id);
         // return $order;
-        return view('user.order.show')->with('order',$order);
+        $carts= $order->cart;
+        return view('user.order.show',compact('order','carts'));
     }
     // Product Review
     public function productReviewIndex(){

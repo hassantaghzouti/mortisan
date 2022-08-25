@@ -25,7 +25,7 @@ class AdminController extends Controller
     //  return $data;
      return view('backend.index')->with('users', json_encode($array));
     }
-
+ 
     public function profile(){
         $profile=Auth()->user();
         // return $profile;

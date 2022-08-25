@@ -133,7 +133,7 @@
               e.preventDefault();
               swal({
                     title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
+                    text: "Once canceled, you will have to message the admin to activate the order again!",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,

@@ -43,7 +43,7 @@
                 @endif
             </td>
             <td>
-                <form method="POST" action="{{route('order.destroy',[$order->id])}}">
+                <form method="POST" action="{{route('user.order.delete',[$order->id])}}">
                   @csrf
                   @method('delete')
                       <button class="btn btn-danger btn-sm dltBtn" data-id={{$order->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
@@ -101,6 +101,25 @@
           </div>
 
           <div class="col-lg-6 col-lx-4">
+            <div class="shipping-info">
+            <h4 class="text-center pb-4">PRODUCTS INFORMATION</h4>
+            
+            <table class="table">
+              @foreach ($carts as $cart)
+              <tr class="">
+                <td><b>Product</b></td>
+                <td>{{$cart->product->title}}</td>
+                <td><b>Quantity</b></td>
+                <td>{{$cart->quantity}}</td>
+                <td><b>Price</b></td>
+                <td>{{$cart->price}}</td>
+              </tr>
+              @endforeach
+            </table>
+            </div>       
+          </div>
+
+          <div class="col-lg-6 col-lx-4 mt-3">
             <div class="shipping-info">
               <h4 class="text-center pb-4">SHIPPING INFORMATION</h4>
               <table class="table">
