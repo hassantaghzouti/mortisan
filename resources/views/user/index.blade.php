@@ -89,7 +89,7 @@
 
     <div class="row">
       @php
-          $orders=DB::table('orders')->where('user_id',auth()->user()->id)->paginate(10);
+          $orders=DB::table('orders')->orderBy('id','DESC')->where('user_id',auth()->user()->id)->paginate(10);
       @endphp
       <!-- Order -->
       <div class="col-xl-12 col-lg-12">

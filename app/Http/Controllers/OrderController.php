@@ -22,7 +22,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders=Order::orderBy('id','ASC')->paginate(10);
+        $orders=Order::orderBy('id','DESC')->paginate(10);
         return view('backend.order.index')->with('orders',$orders);
     }
 
@@ -125,7 +125,7 @@ class OrderController extends Controller
         }
         else{
             $order_data['payment_method']='cod';
-            $order_data['payment_status']='Unpaid';
+            $order_data['payment_status']='paid';
         }
         $order->fill($order_data);
         $status=$order->save();

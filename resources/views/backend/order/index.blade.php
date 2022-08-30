@@ -109,6 +109,7 @@
   <script>
       
       $('#order-dataTable').DataTable( {
+            order: [[0, 'desc']],
             "columnDefs":[
                 {
                     "orderable":false,
