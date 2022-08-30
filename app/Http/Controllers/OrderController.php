@@ -162,8 +162,9 @@ class OrderController extends Controller
     {
         $order=Order::find($id);
         // return $order;
-        $product_id=Cart::where('order_id',$id);
-        return view('backend.order.show')->with('order',$order);
+        //$product_id=Cart::where('order_id',$id);
+        $carts= $order->cart;
+        return view('backend.order.show',compact('order','carts'));
     }
 
     /**
