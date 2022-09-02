@@ -89,6 +89,9 @@ Route::post('/coupon-store','CouponController@couponStore')->name('coupon-store'
 Route::get('payment', 'PayPalController@payment')->name('payment');
 Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
 Route::get('payment/success', 'PayPalController@success')->name('payment.success');
+// Stripe
+Route::get('stripe', 'StripePaymentController@stripe')->name('stripe');;
+Route::post('stripe', 'StripePaymentController@stripePost')->name('stripe.post');
 
 
 

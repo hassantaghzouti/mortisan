@@ -6,50 +6,16 @@ use Illuminate\Http\Request;
 use NunoMaduro\Collision\Provider;
 use App\Models\Cart;
 use App\Models\Product;
+use App\Models\Order;
 use DB;
+use Notification;
+use App\User;
+use App\Notifications\StatusNotification;
 class PaypalController extends Controller
 {
     public function payment()
     {
-        $cart = Cart::where('user_id',auth()->user()->id)->where('order_id',null)->get()->toArray();
         
-        $data = [];
-        
-        // return $cart;
-        $data['items'] = array_map(function ($item) use($cart) {
-            $name=Product::where('id',$item['product_id'])->pluck('title');
-            return [
-                'name' =>$name ,
-                'price' => $item['price'],
-                'desc'  => 'Thank you for using paypal',
-                'qty' => $item['quantity']
-            ];
-        }, $cart);
-
-        $data['invoice_id'] ='ORD-'.strtoupper(uniqid());
-        $data['invoice_description'] = "Order #{$data['invoice_id']} Invoice";
-        $data['return_url'] = route('payment.success');
-        $data['cancel_url'] = route('payment.cancel');
-
-        $total = 0;
-        foreach($data['items'] as $item) {
-            $total += $item['price']*$item['qty'];
-        }
-
-        $data['total'] = $total;
-        if(session('coupon')){
-            $data['shipping_discount'] = session('coupon')['value'];
-        }
-        Cart::where('user_id', auth()->user()->id)->where('order_id', null)->update(['order_id' => session()->get('id')]);
-
-        // return session()->get('id');
-        $provider = new ExpressCheckout;
-  
-        $response = $provider->setExpressCheckout($data);
-        //added by hassan
-        //$response = $provider->setExpressCheckout($data, true);
-    
-        return redirect($response['paypal_link']);
     }
    
     /**
@@ -69,11 +35,27 @@ class PaypalController extends Controller
      */
     public function success(Request $request)
     {
+        //dd($request->total_amount);
         $provider = new ExpressCheckout;
         $response = $provider->getExpressCheckoutDetails($request->token);
         // return $response;
   
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
+            $order = new Order();
+            $order_data = $request->all();
+            $order->fill($order_data);
+            $order->save();
+            if ($order){
+                // dd($order->id);
+                $users = User::where('role', 'admin')->first();
+                Cart::where('user_id', auth()->user()->id)->where('order_id', null)->update(['order_id' => $order->id]);
+                $details = [
+                    'title' => 'New order created',
+                    'actionURL' => route('order.show', $order->id),
+                    'fas' => 'fa-file-alt'
+                ];
+                Notification::send($users, new StatusNotification($details));
+            }
             request()->session()->flash('success','You successfully pay from Paypal! Thank You');
             session()->forget('cart');
             session()->forget('coupon');
