@@ -62,7 +62,12 @@
                         @elseif($order->status=='delivered')
                           <span class="badge badge-success">{{$order->status}}</span>
                         @else
-                          <span class="badge badge-danger">{{$order->status}}</span>
+                          <span class="badge badge-danger">{{$order->status}}</span>                        
+                        @endif
+                        @if ($order->payment_status == 'paid')
+                          <span class="badge badge-success">{{$order->payment_status}}</span>
+                        @else
+                          <span class="badge badge-danger">{{$order->payment_status}}</span>
                         @endif
                     </td>
                     <td>

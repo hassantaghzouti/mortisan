@@ -113,6 +113,8 @@ class CategoryController extends Controller
             'parent_id'=>'nullable|exists:categories,id',
         ]);
         $data= $request->all();
+        $slug=Str::slug($request->title);
+        $data['slug']=$slug;
         $data['is_parent']=$request->input('is_parent',0);
         // return $data;
         $status=$category->fill($data)->save();

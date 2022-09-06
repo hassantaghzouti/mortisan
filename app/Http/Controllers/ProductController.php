@@ -156,6 +156,8 @@ class ProductController extends Controller
         
 
         $data=$request->all();
+        $slug=Str::slug($request->title);
+        $data['slug']=$slug;
         $data['is_featured']=$request->input('is_featured',0);
         $size=$request->input('size');
         if($size){
