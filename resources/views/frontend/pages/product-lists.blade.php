@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('title','E-SHOP || PRODUCT PAGE')
+@section('title','Mortisan || PRODUCT PAGE')
 
 @section('main-content')
 	
@@ -26,10 +26,10 @@
 			<section class="product-area shop-sidebar shop-list shop section">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-3 col-md-4 col-12">
-							<div class="shop-sidebar">
+						<div class="order-last order-sm-first  col-lg-3 col-md-4 col-12">
+							<div class="shop-sidebar ">
                                 <!-- Single Widget -->
-                                <div class="single-widget category">
+                                <div class="single-widget category mt-0 mt-sm-5">
                                     <h3 class="title">Categories</h3>
                                     <ul class="categor-list">
 										@php
@@ -142,7 +142,7 @@
                                 <!--/ End Single Widget -->
                         	</div>
 						</div>
-						<div class="col-lg-9 col-md-8 col-12">
+						<div class="order-first order-sm-last  col-lg-9 col-md-8 col-12">
 							<div class="row">
 								<div class="col-12">
 									<!-- Shop Top -->

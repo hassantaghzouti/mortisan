@@ -3,7 +3,7 @@
     <div class="topbar">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-12 col-12">
+                <div class="col-lg-6 col-md-12 col-12 d-none d-xl-inline">
                     <!-- Top Left -->
                     <div class="top-left">
                         <ul class="list-main">
@@ -21,7 +21,7 @@
                     <!-- Top Right -->
                     <div class="right-content">
                         <ul class="list-main">
-                        <li><i class="ti-location-pin"></i> <a href="{{route('order.track')}}">Track Order</a></li>
+                        <li class="d-none d-xl-inline"><i class="ti-location-pin"></i> <a href="{{route('order.track')}}">Track Order</a></li>
                             {{-- <li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li> --}}
                             @auth 
                                 @if(Auth::user()->role=='user')
