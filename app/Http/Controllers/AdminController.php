@@ -8,6 +8,7 @@ use App\User;
 use App\Rules\MatchOldPassword;
 use Hash;
 use Carbon\Carbon;
+use Illuminate\Auth\Events\Validated;
 use Spatie\Activitylog\Models\Activity;
 class AdminController extends Controller
 {
@@ -81,15 +82,17 @@ class AdminController extends Controller
     }
     public function changPasswordStore(Request $request)
     {
-        $request->validate([
-            'current_password' => ['required', new MatchOldPassword],
-            'new_password' => ['required'],
-            'new_confirm_password' => ['same:new_password'],
+        $test = $request->validate([
+            'current_password' =>  ['required', new MatchOldPassword],
+            'new_password' => 'required',
+            'new_confirm_password' => 'same:new_password',
         ]);
-   
-        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
-   
-        return redirect()->route('admin')->with('success','Password successfully changed');
+        if($test){
+            User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+            return redirect()->route('admin')->with('success','Password successfully changed');
+        }else{
+            return redirect()->back()->with('danger','Password do not match');
+        }
     }
 
     // Pie chart

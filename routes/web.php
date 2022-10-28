@@ -145,7 +145,7 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     Route::delete('/notification/{id}','NotificationController@delete')->name('notification.delete');
     // Password Change
     Route::get('change-password', 'AdminController@changePassword')->name('change.password.form');
-    Route::post('change-password', 'AdminController@changPasswordStore')->name('change.password');
+    Route::post('change-password', 'AdminController@changPasswordStore')->name('admin.change.password');
 
     //media
     // medias //private routes  for admin to access
