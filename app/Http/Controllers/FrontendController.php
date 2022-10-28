@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Mail;
+use App\Mail\registerMail;
 use App\Models\Banner;
 use App\Models\Product;
 use App\Models\Category;
@@ -384,10 +387,21 @@ class FrontendController extends Controller
         $check=$this->create($data);
         Session::put('user',$data['email']);
         if($check){
-            request()->session()->flash('success','Successfully registered');
-            return redirect()->route('login.form');
+            request()->session()->flash('success','Successfully registered checkout your Email for the welcome Coupon Code');
             // send smtp email to admin and client
+            $clientMail = $request->email;
+            $clientName = $request->name;
             
+            $details = [
+                // 'title' => 'Mortisan',
+                'clientName' => $clientName,
+                // 'body' => 'Thank you for registering on mortisan for your welcome will give you a special promotion code for your first purchase',
+                'promoCode' => 'COUP5OFF'
+            ];
+            
+            Mail::to($clientMail)->send(new registerMail($details));
+
+            return redirect()->route('login.form');
         }
         else{
             request()->session()->flash('error','Please try again!');
