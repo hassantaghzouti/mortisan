@@ -22,7 +22,6 @@ use DB;
 use Hash;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 
 class FrontendController extends Controller
 {
