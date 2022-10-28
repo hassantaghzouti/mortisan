@@ -12,11 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//test route for mail smtp
-Route::get('/registermail', function () {
-    return view('emails.registerMail');
-});
-//
 
 Auth::routes(['register'=>false]);
 

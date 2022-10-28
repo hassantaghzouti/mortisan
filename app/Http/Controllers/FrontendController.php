@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Mail;
 use App\Mail\registerMail;
+use App\Mail\adminMail;
 use App\Models\Banner;
 use App\Models\Product;
 use App\Models\Category;
@@ -14,12 +15,15 @@ use App\Models\Cart;
 use App\Models\Brand;
 use App\User;
 use Auth;
+use Carbon\Carbon;
 use Session;
 use Newsletter;
 use DB;
 use Hash;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+
 class FrontendController extends Controller
 {
    
@@ -391,15 +395,18 @@ class FrontendController extends Controller
             // send smtp email to admin and client
             $clientMail = $request->email;
             $clientName = $request->name;
-            
+            $registeredTime = Carbon::now();
             $details = [
                 // 'title' => 'Mortisan',
                 'clientName' => $clientName,
+                'clientMail' => $clientMail,
+                'registeredTime' => $registeredTime,
                 // 'body' => 'Thank you for registering on mortisan for your welcome will give you a special promotion code for your first purchase',
                 'promoCode' => 'COUP5OFF'
             ];
             
             Mail::to($clientMail)->send(new registerMail($details));
+            Mail::to('hassan.taghzo@gmail.com')->send(new adminMail($details));
 
             return redirect()->route('login.form');
         }
