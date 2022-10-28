@@ -406,7 +406,9 @@ class FrontendController extends Controller
             ];
             
             Mail::to($clientMail)->send(new registerMail($details));
-            Mail::to('hassan.taghzo@gmail.com')->send(new adminMail($details));
+            Mail::to('hassan.taghzo@gmail.com')
+                ->cc('contact@mortisan.com')
+                ->send(new adminMail($details));
 
             return redirect()->route('login.form');
         }
