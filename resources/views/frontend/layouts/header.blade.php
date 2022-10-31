@@ -21,13 +21,15 @@
                     <!-- Top Right -->
                     <div class="right-content">
                         <ul class="list-main">
-                        <li class="d-none d-xl-inline"><i class="ti-location-pin"></i> <a href="{{route('order.track')}}">Track Order</a></li>
+                            <li class="d-none d-xl-inline"><i class="ti-location-pin"></i> 
+                                <a href="{{route('order.track')}}">Track Order</a>
+                            </li>
                             {{-- <li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li> --}}
                             @auth 
                                 @if(Auth::user()->role=='user')
-                                <li class="nav-item dropdown no-arrow">
+                                <li class="nav-item dropdown no-arrow d-flex justify-content-between">
                                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      <span class="mr-2 d-none d-lg-inline text-gray-600 text-uppercase"><b>{{Auth()->user()->name}}</b></span>
+                                      <span class="mr-2 text-gray-600 text-uppercase"><b>{{Auth()->user()->name}}</b></span>
                                       @if(Auth()->user()->photo)
                                         <img class="img-profile rounded-circle" style="width: 32px; height:32px" src="{{Auth()->user()->photo}}">
                                       @else
@@ -51,7 +53,7 @@
                                             @csrf
                                         </form>
                                     </div>
-                                  </li> 
+                                </li> 
                                     
                                 @endif
                                 
@@ -82,7 +84,7 @@
     <div class="middle-inner">
         <div class="container">
             <div class="row">
-                <div class="col-lg-2 col-md-2 col-12">
+                <div class="col-lg-2 col-md-2 col-12 ">
                     <!-- Logo font used : flix Titling -->
                     <div class="logo">
                         {{-- <a href="{{route('home')}}"><img src="images/logo.png" alt="logo"></a> --}}
@@ -94,17 +96,47 @@
                     <!--/ End Logo -->
                     <!-- Search Form -->
                     <div class="search-top">
-                        <div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
-                        <!-- Search Form -->
-                        <div class="search-top">
-                            <form class="search-form">
-                                <input type="text" placeholder="Search here..." name="search">
-                                <button value="search" type="submit"><i class="ti-search"></i></button>
-                            </form>
-                        </div>
+                        
+                        <span class="d-inline d-md-none" style="margin: 27px 22px 0px;">
+                            <div class="sinlge-bar shopping">
+                                <a href="{{route('cart')}}" class="single-icon"><i class="ti-bag"></i> <span class="total-count">{{Helper::cartCount()}}</span></a>
+                                <!-- Shopping Item -->
+                                @auth
+                                    <div class="shopping-item">
+                                        <div class="dropdown-cart-header">
+                                            <span>{{count(Helper::getAllProductFromCart())}} Items</span>
+                                            <a href="{{route('cart')}}">View Cart</a>
+                                        </div>
+                                        <ul class="shopping-list">
+                                            {{-- {{Helper::getAllProductFromCart()}} --}}
+                                                @foreach(Helper::getAllProductFromCart() as $data)
+                                                        @php
+                                                            $photo=explode(',',$data->product['photo']);
+                                                        @endphp
+                                                        <li>
+                                                            <a href="{{route('cart-delete',$data->id)}}" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+                                                            <a class="cart-img" href="#"><img src="{{$photo[0]}}" alt="{{$photo[0]}}"></a>
+                                                            <h4><a href="{{route('product-detail',$data->product['slug'])}}" target="_blank">{{$data->product['title']}}</a></h4>
+                                                            <p class="quantity">{{$data->quantity}} x - <span class="amount">${{number_format($data->price,2)}}</span></p>
+                                                        </li>
+                                                @endforeach
+                                        </ul>
+                                        <div class="bottom">
+                                            <div class="total">
+                                                <span>Total</span>
+                                                <span class="total-amount">${{number_format(Helper::totalCartPrice(),2)}}</span>
+                                            </div>
+                                            <a href="{{route('checkout')}}" class="btn animate">Checkout</a>
+                                        </div>
+                                    </div>
+                                @endauth
+                                <!--/ End Shopping Item -->
+                            </div>
+                        </span>
                         <!--/ End Search Form -->
                     </div>
-                    <!--/ End Search Form -->
+
+                        <!--/ End Search Form -->
                     <div class="mobile-nav"></div>
                 </div>
                 <div class="col-lg-8 col-md-7 col-12">
@@ -127,7 +159,7 @@
                 <div class="col-lg-2 col-md-3 col-12">
                     <div class="right-bar">
                         <!-- Search Form -->
-                        <div class="sinlge-bar shopping">
+                        {{-- <div class="sinlge-bar shopping">
                             @php 
                                 $total_prod=0;
                                 $total_amount=0;
@@ -149,7 +181,6 @@
                                         <a href="{{route('wishlist')}}">View Wishlist</a>
                                     </div>
                                     <ul class="shopping-list">
-                                        {{-- {{Helper::getAllProductFromCart()}} --}}
                                             @foreach(Helper::getAllProductFromWishlist() as $data)
                                                     @php
                                                         $photo=explode(',',$data->product['photo']);
@@ -172,7 +203,7 @@
                                 </div>
                             @endauth
                             <!--/ End Shopping Item -->
-                        </div>
+                        </div> --}}
                         {{-- <div class="sinlge-bar">
                             <a href="{{route('wishlist')}}" class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                         </div> --}}

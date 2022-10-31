@@ -378,7 +378,8 @@ Version:1.0
 .slicknav_btn {
 	background: transparent;
 	padding: 0;
-	margin: 6px 0 0;
+	/* margin: 6px 0 0; */
+	margin: 27px 9px 0px;
 }
 .slicknav_menu .slicknav_icon-bar{
 	box-shadow:none;
@@ -482,7 +483,20 @@ Version:1.0
 	display:block;
 	position: absolute;
 	right: 50px;
-	top: 4px;
+	top: 22px;
+}
+.total-count {
+    position: absolute;
+    top: -7px;
+    right: 10px;
+    background: #f6931d;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    color: #fff;
+    border-radius: 100%;
+    font-size: 11px;
 }
 .header.shop .logo {
 	margin: 0;
@@ -1091,7 +1105,7 @@ Version:1.0
 .slicknav_btn {
 	background: transparent;
 	padding: 0;
-	margin: 6px 0 0;
+	margin: 27px 9px 0px;
 }
 .slicknav_menu .slicknav_icon-bar{
 	box-shadow:none;
@@ -1181,7 +1195,20 @@ Version:1.0
 	display:block;
 	position: absolute;
 	right: 50px;
-	top: 4px;
+	top: 22px;
+}
+.total-count {
+    position: absolute;
+    top: -7px;
+    right: 10px;
+    background: #f6931d;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    color: #fff;
+    border-radius: 100%;
+    font-size: 11px;
 }
 .header.shop .logo {
 	margin: 0;
