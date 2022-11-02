@@ -1608,18 +1608,21 @@ Version:1.0
 	transform:translateY(-50%);
 }
 .midium-banner .single-banner h3 {
+	font-size: 17px;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #333333a3;
+	line-height: 30px;
+}
+.midium-banner .single-banner span{
 	font-size: 27px;
 	font-weight: 700;
 	text-transform: uppercase;
-	color: #333;
-	line-height: 30px;
-}
-.midium-banner .single-banner h3 span{
-	color:#F7941D;
+	color:#fff;
 }
 .midium-banner .single-banner p {
-	font-size: 13px;
-	color: #F7941D;
+	font-size: 18px;
+	color: #fff;
 	font-weight: 500;
 	margin-bottom: 5px;
 	text-transform: uppercase;
@@ -2898,7 +2901,7 @@ Version:1.0
 	height:100%;
 }
 .shop-home-list .single-list .content {
-	padding-top: 45px;
+	/* padding-top: 45px; */
 	padding-right: 12px;
 }
 .shop-home-list .single-list .content .title {

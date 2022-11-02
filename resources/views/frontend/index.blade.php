@@ -89,11 +89,11 @@
                                     // dd($categories);
                                 @endphp
                                 @if($categories)
-                                    <button class="col-xl-2 btn how-active1"  data-filter="*">
+                                    <button class="col-xl-2 px-0 btn how-active1"  data-filter="*">
                                         All Products
                                     </button>
                                     @foreach($categories as $key=>$cat)
-                                    <button class="col-xl-2 btn"  data-filter=".{{$cat->id}}">
+                                    <button class="col-xl-2 px-0 btn"  data-filter=".{{$cat->id}}">
                                         {{$cat->title}}
                                     </button>
                                     @endforeach
@@ -170,6 +170,13 @@
 <section class="midium-banner">
     <div class="container">
         <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <h2 class="text-uppercase">special offers</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             @if($featured)
                 @foreach($featured as $data)
                     <!-- Single Banner  -->
@@ -181,7 +188,8 @@
                             <img src="{{$photo[0]}}" alt="{{$photo[0]}}">
                             <div class="content">
                                 <p>{{$data->cat_info['title']}}</p>
-                                <h3>{{$data->title}} <br>Up to<span> {{$data->discount}}%</span></h3>
+                                <h3>{{$data->title}}</h3><br>
+                                <span>Up to {{$data->discount}}%</span><br>
                                 <a href="{{route('product-detail',$data->slug)}}">Shop Now</a>
                             </div>
                         </div>
@@ -260,7 +268,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="shop-section-title">
-                            <h1>Latest Items</h1>
+                            <h1>Latest Items Discounts</h1>
                         </div>
                     </div>
                 </div>
@@ -285,8 +293,8 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12 no-padding">
                                     <div class="content">
-                                        <h4 class="title"><a href="#">{{$product->title}}</a></h4>
-                                        <p class="price with-discount">${{number_format($product->discount,2)}}</p>
+                                        <h4 class="title"><a href="{{route('product-detail',$product->slug)}}">{!! Str::limit($product->title, 50, ' ...') !!}</a></h4>
+                                        <p class="price with-discount">{{number_format($product->discount,0)}}% Discount</p>
                                     </div>
                                 </div>
                                 </div>
