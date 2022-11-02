@@ -55,7 +55,7 @@
                                 @endif
                                 <div class="content">
                                     <h3 style="color: black; text-shadow: 5px 5px 5px rgb(139 139 139);">{{$cat->title}}</h3>
-                                        <a style="color: black; text-shadow: 5px 5px 5px rgb(139 139 139);" href="{{route('product-cat',$cat->slug)}}">Discover Now</a>
+                                    <a style="color: black; text-shadow: 5px 5px 5px rgb(139 139 139);" href="{{route('product-cat',$cat->slug)}}">Discover Now</a>
                                 </div>
                             </div>
                         </div>
@@ -83,23 +83,22 @@
                     <div class="product-info">
                         <div class="nav-main">
                             <!-- Tab Nav -->
-                            <ul class="nav nav-tabs filter-tope-group" id="myTab" role="tablist">
+                            <div class="row nav filter-tope-group" id="myTab" role="tablist">
                                 @php
                                     $categories=DB::table('categories')->where('status','active')->where('is_parent',1)->get();
                                     // dd($categories);
                                 @endphp
                                 @if($categories)
-                                <button class="btn how-active1"  data-filter="*">
-                                    All Products
-                                </button>
+                                    <button class="col-xl-2 btn how-active1"  data-filter="*">
+                                        All Products
+                                    </button>
                                     @foreach($categories as $key=>$cat)
-
-                                    <button class="btn"  data-filter=".{{$cat->id}}">
+                                    <button class="col-xl-2 btn"  data-filter=".{{$cat->id}}">
                                         {{$cat->title}}
                                     </button>
                                     @endforeach
                                 @endif
-                            </ul>
+                            </div>
                             <!--/ End Tab Nav -->
                         </div>
                         <div class="tab-content isotope-grid" id="myTabContent">
