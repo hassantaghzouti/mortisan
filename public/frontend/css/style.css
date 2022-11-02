@@ -1538,7 +1538,7 @@ Version:1.0
 }
 .small-banner .single-banner img{
 	height:100%;
-	width:100%;
+	width:auto;
 	-webkit-transition:all 0.4s ease;
 	-moz-transition:all 0.4s ease;
 	transition:all 0.4s ease;
