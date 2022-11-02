@@ -9,7 +9,6 @@
                         <ul class="list-main">
                             @php
                                 $settings=DB::table('settings')->get();
-                                
                             @endphp
                             <li><i class="ti-headphone-alt"></i>@foreach($settings as $data) {{$data->phone}} @endforeach</li>
                             <li><i class="ti-email"></i> @foreach($settings as $data) {{$data->email}} @endforeach</li>
@@ -21,13 +20,11 @@
                     <!-- Top Right -->
                     <div class="right-content">
                         <ul class="list-main">
-                            <li class="d-none d-xl-inline"><i class="ti-location-pin"></i> 
-                                <a href="{{route('order.track')}}">Track Order</a>
-                            </li>
+                            
                             {{-- <li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li> --}}
                             @auth 
                                 @if(Auth::user()->role=='user')
-                                <li class="nav-item dropdown no-arrow d-flex justify-content-between">
+                                <li class="nav-item dropdown no-arrow d-flex justify-content-center">
                                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                       <span class="mr-2 text-gray-600 text-uppercase"><b>{{Auth()->user()->name}}</b></span>
                                       @if(Auth()->user()->photo)
@@ -39,15 +36,20 @@
                                     <!-- Dropdown - User Information --> 
                                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                         <a class="dropdown-item" target="_blank" href="{{route('user')}}">
-                                            <i class="fas fa-fw fa-tachometer-alt mr-2 text-gray-400"></i>
+                                            <i class="ti-layout" ></i>
                                             Dashboard
-                                          </a>
-                                      <div class="dropdown-divider"></div>
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" target="_blank" href="{{route('order.track')}}">
+                                            <i class="ti-location-pin" ></i> 
+                                            Track Order
+                                        </a>
+                                        <div class="dropdown-divider"></div>
                                       <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                             document.getElementById('logout-form').submit();">
-                                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> {{ __('Logout') }}
-                                        </a>
+                                             <i class="ti-power-off"></i> {{ __('Logout') }}
+                                      </a>
                             
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             @csrf
