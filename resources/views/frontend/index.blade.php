@@ -40,13 +40,13 @@
     <div class="container-fluid">
         <div class="row">
             @php
-            $category_lists=DB::table('categories')->where('status','active')->limit(3)->get();
+            $category_lists=DB::table('categories')->where('status','active')->limit(5)->get();
             @endphp
             @if($category_lists)
                 @foreach($category_lists as $cat)
                     @if($cat->is_parent==1)
                         <!-- Single Banner  -->
-                        <div class="col-lg-4 col-md-6 col-12">
+                        <div class="col-lg col-md-4 col-12 d-flex justify-content-center">
                             <div class="single-banner">
                                 @if($cat->photo)
                                     <img src="{{$cat->photo}}" alt="{{$cat->photo}}">
