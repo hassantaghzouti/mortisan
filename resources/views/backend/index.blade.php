@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title','Mortisan || DASHBOARD')
+@section('title','Mortisan - DASHBOARD')
 @section('main-content')
 <div class="container-fluid">
     @include('backend.layouts.notification')

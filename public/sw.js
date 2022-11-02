@@ -14,6 +14,14 @@ self.addEventListener('install', function(e) {
     })
   );
 });
+//original that has the error
+// self.addEventListener('install', function(e) {
+//   e.waitUntil(
+//     caches.open(cacheName).then(function(cache) {
+//       return cache.addAll(filesToCache);
+//     })
+//   );
+// });
 
 /* Serve cached content when offline */
 self.addEventListener('fetch', function(e) {

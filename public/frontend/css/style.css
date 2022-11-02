@@ -1672,7 +1672,7 @@ Version:1.0
 .most-popular .owl-nav{
 	margin: 0;
     position: absolute;
-    top: 50%;
+	top: 35%;
     width: 100%;
 	margin-top:-25px;
 }
@@ -2943,7 +2943,7 @@ Version:1.0
 	padding:0px 50px;
 }
 .shopping-summery thead {
-	background: #ababab;
+	background: #333333;
 	color: #fff;
 }
 .shopping-summery thead tr th {

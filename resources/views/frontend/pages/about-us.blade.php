@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('title','Mortisan || About Us')
+@section('title','Mortisan - About Us')
 
 @section('main-content')
 

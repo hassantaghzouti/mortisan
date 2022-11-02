@@ -1,6 +1,6 @@
 @extends('user.layouts.master')
 
-@section('title','Comment Edit')
+@section('title','Mortisan - Comment Edit')
 
 @section('main-content')
 <div class="card">

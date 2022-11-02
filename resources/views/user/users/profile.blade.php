@@ -1,6 +1,6 @@
 @extends('user.layouts.master')
 
-@section('title','Admin Profile')
+@section('title','Mortisan - Admin Profile')
 
 @section('main-content')
 

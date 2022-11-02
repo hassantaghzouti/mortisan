@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('title','Mortisan || Order Track Page')
+@section('title','Mortisan -  Order Track Page')
 
 @section('main-content')
     <!-- Breadcrumbs -->

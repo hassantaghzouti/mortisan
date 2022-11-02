@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('title','Mortisan || PRODUCT PAGE')
+@section('title','Mortisan -  PRODUCT PAGE')
 
 @section('main-content')
 	<!-- Breadcrumbs -->

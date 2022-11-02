@@ -197,3 +197,4 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 //media
 Route::get('/medias/{id}', [App\Http\Controllers\MediaController::class , 'showmedias']);
 Route::resource('medias', MediaController::class);
+
