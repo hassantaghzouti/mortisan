@@ -45,33 +45,44 @@
                                             Track Order
                                         </a>
                                         <div class="dropdown-divider"></div>
-                                      <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                            document.getElementById('logout-form').submit();">
-                                             <i class="ti-power-off"></i> {{ __('Logout') }}
-                                      </a>
-                            
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                                document.getElementById('logout-form').submit();">
+                                                <i class="ti-power-off"></i> {{ __('Logout') }}
+                                        </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             @csrf
                                         </form>
                                     </div>
                                 </li> 
-                                    
-                                @endif
-                                
-                                {{-- <li> <span>text</span>
-                                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                    
-                                    <a class="dropdown-item" href="{{route('settings')}}">
-                                      <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                      Settings
+                                @elseif(Auth::user()->role=='admin')
+                                <li class="nav-item dropdown no-arrow d-flex justify-content-center">
+                                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      <span class="mr-2 text-gray-600 text-uppercase"><b>{{Auth()->user()->name}}</b></span>
+                                      @if(Auth()->user()->photo)
+                                        <img class="img-profile rounded-circle" style="width: 32px; height:32px" src="{{Auth()->user()->photo}}">
+                                      @else
+                                        <img class="img-profile rounded-circle" style="width: 32px; height:32px" src="{{asset('backend/img/avatar.png')}}">
+                                      @endif
                                     </a>
-                                    <div class="dropdown-divider"></div>
-                                    <li><i class="ti-power-off"></i> <a href="{{route('user.logout')}}">Logout</a></li>
+                                    <!-- Dropdown - User Information --> 
+                                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                        <a class="dropdown-item" target="_blank" href="{{route('admin')}}">
+                                            <i class="ti-layout" ></i>
+                                            Dashboard
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                                document.getElementById('logout-form').submit();">
+                                                <i class="ti-power-off"></i> {{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
                                     </div>
-                                </li> --}}
-                                
-
+                                </li> 
+                                @endif
                             @else
                                 <li><i class="ti-power-off"></i><a href="{{route('login.form')}}">Login /</a> <a href="{{route('register.form')}}">Register</a></li>
                             @endauth
