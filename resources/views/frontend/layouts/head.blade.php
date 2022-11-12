@@ -36,8 +36,8 @@
 {{-- <link rel="stylesheet" href="{{asset('frontend/css/animate.css')}}"> --}}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 <!-- Flex Slider CSS -->
-{{-- <link rel="stylesheet" href="{{asset('frontend/css/flex-slider.min.css')}}"> --}}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/flexslider.min.css">
+<link rel="stylesheet" href="{{asset('frontend/css/flex-slider.min.css')}}">
+{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/flexslider.min.css"> --}}
 <!-- Owl Carousel -->
 <link rel="stylesheet" href="{{asset('frontend/css/owl-carousel.css')}}">
 <!-- Slicknav -->
