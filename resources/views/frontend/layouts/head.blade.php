@@ -19,11 +19,13 @@
 <!-- Magnific Popup -->
 <link rel="stylesheet" href="{{asset('frontend/css/magnific-popup.min.css')}}">
 <!-- Font Awesome -->
-<link rel="stylesheet" href="{{asset('frontend/css/font-awesome.css')}}">
+{{-- <link rel="stylesheet" href="{{asset('frontend/css/font-awesome.css')}}"> --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css">
 <!-- Fancybox -->
 <link rel="stylesheet" href="{{asset('frontend/css/jquery.fancybox.min.css')}}">
 <!-- Themify Icons -->
-<link rel="stylesheet" href="{{asset('frontend/css/themify-icons.css')}}">
+{{-- <link rel="stylesheet" href="{{asset('frontend/css/themify-icons.css')}}"> --}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
 <!-- Nice Select CSS -->
 <link rel="stylesheet" href="{{asset('frontend/css/niceselect.css')}}">
 <!-- Animate CSS -->
