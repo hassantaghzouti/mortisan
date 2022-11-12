@@ -384,7 +384,7 @@
                         <!-- Product Slider -->
                             <div class="product-gallery">
                                 <div class="quickview-slider-active">
-                                    <div class="single-slider">
+                                    {{-- <div class="single-slider">
                                         <img src="images/modal1.png" alt="#">
                                     </div>
                                     <div class="single-slider">
@@ -395,7 +395,7 @@
                                     </div>
                                     <div class="single-slider">
                                         <img src="images/modal4.png" alt="#">
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         <!-- End Product slider -->
