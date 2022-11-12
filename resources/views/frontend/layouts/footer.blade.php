@@ -93,37 +93,53 @@
 	<script src=""></script>
  
 	<!-- Jquery -->
-    <script src="{{asset('frontend/js/jquery.min.js')}}"></script>
-    <script src="{{asset('frontend/js/jquery-migrate-3.0.0.js')}}"></script>
-	<script src="{{asset('frontend/js/jquery-ui.min.js')}}"></script>
+	{{-- <script src="{{asset('frontend/js/jquery.min.js')}}"></script> --}}
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    {{-- <script src="{{asset('frontend/js/jquery-migrate-3.0.0.js')}}"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.0/jquery-migrate.min.js"></script>
+	{{-- <script src="{{asset('frontend/js/jquery-ui.min.js')}}"></script> --}}
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 	<!-- Popper JS -->
-	<script src="{{asset('frontend/js/popper.min.js')}}"></script>
+	{{-- <script src="{{asset('frontend/js/popper.min.js')}}"></script> --}}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
 	<!-- Bootstrap JS -->
-	<script src="{{asset('frontend/js/bootstrap.min.js')}}"></script>
+	{{-- <script src="{{asset('frontend/js/bootstrap.min.js')}}"></script> --}}
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
 	<!-- Color JS -->
-	<script src="{{asset('frontend/js/colors.js')}}"></script>
+	{{-- <script src="{{asset('frontend/js/colors.js')}}"></script> --}}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/color-js/1.0.1/color.min.js"></script>
 	<!-- Slicknav JS -->
-	<script src="{{asset('frontend/js/slicknav.min.js')}}"></script>
+	{{-- <script src="{{asset('frontend/js/slicknav.min.js')}}"></script> --}}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js"></script>
 	<!-- Owl Carousel JS -->
 	<script src="{{asset('frontend/js/owl-carousel.js')}}"></script>
 	<!-- Magnific Popup JS -->
-	<script src="{{asset('frontend/js/magnific-popup.js')}}"></script>
+	{{-- <script src="{{asset('frontend/js/magnific-popup.js')}}"></script> --}}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 	<!-- Waypoints JS -->
-	<script src="{{asset('frontend/js/waypoints.min.js')}}"></script>
+	{{-- <script src="{{asset('frontend/js/waypoints.min.js')}}"></script> --}}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
 	<!-- Countdown JS -->
-	<script src="{{asset('frontend/js/finalcountdown.min.js')}}"></script>
+	{{-- <script src="{{asset('frontend/js/finalcountdown.min.js')}}"></script> --}}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
 	<!-- Nice Select JS -->
-	<script src="{{asset('frontend/js/nicesellect.js')}}"></script>
+	{{-- <script src="{{asset('frontend/js/nicesellect.js')}}"></script> --}}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
 	<!-- Flex Slider JS -->
-	<script src="{{asset('frontend/js/flex-slider.js')}}"></script>
+	{{-- <script src="{{asset('frontend/js/flex-slider.js')}}"></script> --}}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/jquery.flexslider.js"></script>
 	<!-- ScrollUp JS -->
-	<script src="{{asset('frontend/js/scrollup.js')}}"></script>
+	{{-- <script src="{{asset('frontend/js/scrollup.js')}}"></script> --}}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollup/2.4.1/jquery.scrollUp.min.js"></script>
 	<!-- Onepage Nav JS -->
-	<script src="{{asset('frontend/js/onepage-nav.min.js')}}"></script>
+	{{-- <script src="{{asset('frontend/js/onepage-nav.min.js')}}"></script> --}}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-one-page-nav/3.0.0/jquery.nav.min.js"></script>
 	{{-- Isotope --}}
-	<script src="{{asset('frontend/js/isotope/isotope.pkgd.min.js')}}"></script>
+	{{-- <script src="{{asset('frontend/js/isotope/isotope.pkgd.min.js')}}"></script> --}}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
 	<!-- Easing JS -->
-	<script src="{{asset('frontend/js/easing.js')}}"></script>
+	{{-- <script src="{{asset('frontend/js/easing.js')}}"></script> --}}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 
 	<!-- Active JS -->
 	<script src="{{asset('frontend/js/active.js')}}"></script>
