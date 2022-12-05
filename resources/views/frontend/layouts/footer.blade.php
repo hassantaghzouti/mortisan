@@ -100,8 +100,8 @@
 	{{-- <script src="{{asset('frontend/js/jquery-ui.min.js')}}"></script> --}}
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 	<!-- Popper JS -->
-	{{-- <script src="{{asset('frontend/js/popper.min.js')}}"></script> --}}
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+	<script src="{{asset('frontend/js/popper.min.js')}}"></script>
+	{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script> --}}
 	<!-- Bootstrap JS -->
 	{{-- <script src="{{asset('frontend/js/bootstrap.min.js')}}"></script> --}}
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
